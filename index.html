@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      border: 1px solid #000;
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas">当前浏览器不支持Canvas</canvas>
+
+  <script>
+    let canvas = document.getElementById('canvas');
+    canvas.width = 1024;
+    canvas.height = 768;
+
+    // 判断浏览器是否支持canvas
+    if (canvas.getContext('2d')) {
+      console.log('支持')
+      let context = canvas.getContext('2d')
+      context.beginPath()
+      context.moveTo(100, 100)
+      context.lineTo(200, 100)
+      context.closePath()
+      context.lineWidth = 1
+      context.strokeStyle = "red"
+      context.stroke()
+      context.beginPath()
+      context.moveTo(150, 50)
+      context.lineTo(150, 150)
+      context.closePath()
+      context.lineWidth = 1
+      context.strokeStyle = "blue"
+      context.stroke()
+
+      // context.fillStyle = "blue"
+      // context.fill()
+      // context.lineWidth = 50
+      // context.strokeStyle = 'red'
+      // context.stroke()
+    } else {
+      console.log('不支持')
+    }
+  </script>
+</body>
+</html>
