@@ -107,3 +107,18 @@ context.fillStyle = linearGrad
 context.fillRect(0,0,800,800)
 ```
 
+## Canvas径向渐变
+
+```
+let rediaGrad = context.createRadialGradient(400,400,0,400,400,500)
+for(let i = 0; i < 100; i++) {
+    let r = parseInt(Math.random() * 255)
+    let g = parseInt(Math.random() * 255)
+    let b = parseInt(Math.random() * 255)
+    let a = parseInt(Math.random() * 5)
+    rediaGrad.addColorStop(i/100, `rgba(${r},${g},${b},${a})`)
+}
+context.fillStyle = rediaGrad
+context.fillRect(0,0,800,800)
+```
+
