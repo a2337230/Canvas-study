@@ -77,3 +77,19 @@ for(let i = 0; i<10; i++) {
 }
 ```
 
+```
+实心圆-实心closePath没有影响
+context.fillStyle = '#005588'
+for(let i = 0; i<10; i++) {
+    context.beginPath()
+    context.arc(50 + i * 100, 150, 40, 0 , 2 * Math.PI * (i + 1)/ 10)
+    context.fill()
+}
+```
+
+## Canvas刷新操作
+
+```
+*cxt*.clearRect(0,0,WIDTH,HEIGHT)
+```
+

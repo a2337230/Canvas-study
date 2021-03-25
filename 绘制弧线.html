@@ -16,11 +16,14 @@
     context.strokeStyle = "red"
     // context.arc(300,300,20,0,0.5 * Math.PI, true)
     // context.stroke()
+    context.fillStyle = '#005588'
     for(let i = 0; i<10; i++) {
       context.beginPath()
       context.arc(50 + i * 100, 150, 40, 0 , 2 * Math.PI * (i + 1)/ 10)
       context.closePath()
-      context.stroke()
+      // context.stroke()
+      context.fill()
+      
     }
   </script>
 </body>
