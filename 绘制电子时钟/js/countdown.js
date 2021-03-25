@@ -1,7 +1,7 @@
 // 定义全局变量宽高
-const WIDTH = 1024
-const HEIGHT = 768
-const RADUIS = 6
+const WIDTH = document.body.clientWidth
+const HEIGHT = document.body.clientHeight
+var RADUIS = 10
 var MARGIN_LEFT = 0
 var MARGIN_TOP = 0
 var balls = []
@@ -23,7 +23,7 @@ function render(cxt) {
   let minutes = date.getMinutes()< 10 ? '0' + date.getMinutes() : date.getMinutes()
   let secondes = date.getSeconds()< 10 ? '0' + date.getSeconds() : date.getSeconds()
   // 秒数改变刷新
-  if (second !== secondes) {
+  // if (second !== secondes) {
     let now = (hourse + ':' + minutes + ':' + secondes).split('')
     cxt.clearRect(0,0,WIDTH,HEIGHT)
     now.forEach((item, index)=> {
@@ -32,21 +32,24 @@ function render(cxt) {
     second = secondes
 
 
-  }
+  // }
   // renderDigit(MARGIN_LEFT,MARGIN_TOP,parseInt(hourse/10),cxt)
   // renderDigit(MARGIN_LEFT + 15*(RADUIS + 1),MARGIN_TOP,2,cxt)
   // renderDigit(MARGIN_LEFT + 30*(RADUIS + 1),MARGIN_TOP,10,cxt)
 }
 // 时钟绘制函数
 function renderDigit(x,y,num,cxt) {
-  let r = parseInt(Math.random() * 255)
-  let g = parseInt(Math.random() * 255)
-  let b = parseInt(Math.random() * 255)
-  // cxt.fillStyle = 'blue'
-  cxt.fillStyle = `rgb(${r},${g},${b})`
+  
   for(let i = 0; i < digit[num].length; i++) {
     for(let j = 0; j < digit[num][i].length; j++) {
       if (digit[num][i][j] == 1) {
+        let r = parseInt(Math.random() * 255)
+        let g = parseInt(Math.random() * 255)
+        let b = parseInt(Math.random() * 255)
+        let a = parseInt(Math.random() * 100)
+        // RADUIS = parseInt(Math.random() * 20)
+        // cxt.fillStyle = 'blue'
+        cxt.fillStyle = `rgb(${r},${g},${b},${a/100})`
         cxt.beginPath()
         cxt.arc(x + j * 2 * (RADUIS + 1) + (RADUIS + 1), y + i * 2 * (RADUIS + 1) + (RADUIS + 1), RADUIS, 0 , 2 * Math.PI)
         cxt.closePath()

@@ -93,3 +93,17 @@ for(let i = 0; i<10; i++) {
 *cxt*.clearRect(0,0,WIDTH,HEIGHT)
 ```
 
+## Canvas线性渐变
+
+```
+let linearGrad = context.createLinearGradient(0,0,800,0)
+for(let i = 0; i < 100; i++) {
+    let r = parseInt(Math.random() * 255)
+    let g = parseInt(Math.random() * 255)
+    let b = parseInt(Math.random() * 255)
+    linearGrad.addColorStop(i/100, `rgb(${r},${g},${b})`)
+}
+context.fillStyle = linearGrad
+context.fillRect(0,0,800,800)
+```
+
