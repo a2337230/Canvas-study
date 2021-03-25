@@ -54,3 +54,26 @@ context.strokeStyle = "blue"
 context.stroke()
 ```
 
+## Canvas绘制弧线
+
+```
+let canvas = document.getElementById('canvas')
+canvas.width = 1024
+canvas.height = 768
+let context = canvas.getContext('2d')
+context.lineWidth = 5
+context.strokeStyle = "red"
+context.arc(300,300,200,0,0.5 * Math.PI, true)
+// x,y,半径,起点,终点,是否逆时针
+context.stroke()
+```
+
+```
+for(let i = 0; i<10; i++) {
+    context.beginPath()
+    context.arc(50 + i * 100, 150, 40, 0 , 2 * Math.PI * (i + 1)/ 10)
+    context.closePath() // 会使收尾链接
+    context.stroke()
+}
+```
+
