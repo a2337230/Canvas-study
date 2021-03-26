@@ -23,8 +23,24 @@
       context.closePath()
       // context.stroke()
       context.fill()
-      
     }
+    let num = 0
+    let timer = ""
+    timer = setInterval(() => {
+      if (num > 2.5) {
+        clearInterval(timer)
+        return
+      }
+      context.clearRect(0,0,1024,468)
+      context.beginPath()
+      context.arc(150, 150, 80, 0 , num * Math.PI)
+      // context.closePath()
+      context.fillText(num * 100 + '%', 75, 75)
+      context.stroke()
+      // context.fill()
+      num+=0.05
+    }, 50)
+    
   </script>
 </body>
 </html>
